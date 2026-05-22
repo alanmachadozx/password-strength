@@ -1,36 +1,13 @@
-def verification(passoword : str):
-    if (len(passoword) < 8):
-        raise Exception('The password is too short')
-    
-    upperAndLowe(passoword)
-    hasANumber(passoword)
-    especialChar(passoword)
-    
-def upperAndLowe(text):
-    upper = False
-    lower = False
-    
-    for char in text:
-        if char.isupper():
-            upper = True
-        if char.islower():
-            lower = True
-    
-    if not upper:
-        raise Exception('At least one uppercase letter is required.')
-    if not lower:
-        raise Exception('At least one lowercase letter is required.')
+import functions
 
-def hasANumber(passw):
-    number = any(char.isdigit() for char in passw)
-    if not number:
-        raise Exception('At least one number is required.')
-
-def especialChar(passw):
+def verification(password : str):
     
-    char = any(char.isalnum() for char in passw)
-    if not char:
-        raise Exception('At least one special character is required.')
-    if ' ' in passw: 
-        raise Exception('No spaces allowed')
-        
+    if not functions.lenght(password):
+        print("The password is too short")
+    functions.upperAndLowe(password)
+    if not functions.hasANumber(password):
+        print("At least one number is required.")
+    if not functions.especialChar(password):
+        print("At least one special character is required.")
+    if not functions.emptyEspace(password):
+        print("It's not about allowing empty spaces.")
