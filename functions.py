@@ -6,9 +6,12 @@ def lenght(passw):
 def upperAndLowe(text):
     
     if not re.search("[A-Z]", text):
-        return print("At least one uppercase letter is required.")
+        print("At least one uppercase letter is required.")
+        return False
+        
     if not re.search("[a-z]", text):
-        return print("At least one lowercase letter is required.")
+        print("At least one lowercase letter is required.")
+        return False
 
 def hasANumber(passw):
     if not re.search("[0-9]", passw):
